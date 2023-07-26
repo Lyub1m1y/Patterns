@@ -1,5 +1,8 @@
 package com.patterns;
 
+import com.patterns.adapter.Computer;
+import com.patterns.adapter.MemoryCard;
+import com.patterns.adapter.MemoryCardAdapter;
 import com.patterns.factory.Coffee;
 import com.patterns.factory.CoffeeFactory;
 import com.patterns.factory.CoffeeMachine;
@@ -22,6 +25,10 @@ public class TestClass {
     } catch (ClassNotFoundException ex) {
       System.out.println(ex.getMessage());
     }
+
+    //Adapter
+    Computer computer = new Computer();
+    computer.connect(new MemoryCardAdapter(new MemoryCard()));
 
   }
 }
