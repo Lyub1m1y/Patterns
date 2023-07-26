@@ -7,6 +7,9 @@ import com.patterns.factory.Coffee;
 import com.patterns.factory.CoffeeFactory;
 import com.patterns.factory.CoffeeMachine;
 import com.patterns.factory.CoffeeType;
+import com.patterns.proxy.DataBaseConnector;
+import com.patterns.proxy.DataBaseProxy;
+import com.patterns.proxy.impl.DataBaseConnectorImpl;
 import com.patterns.singleton.Logger;
 public class TestClass {
   public static void main(String[] args) {
@@ -30,5 +33,11 @@ public class TestClass {
     Computer computer = new Computer();
     computer.connect(new MemoryCardAdapter(new MemoryCard()));
 
+    //Proxy
+    DataBaseConnector connector = new DataBaseConnectorImpl("PostgreSQL");
+    connector.connect();
+
+    DataBaseConnector connectorProxy = new DataBaseProxy("PostgreSQL");
+    connectorProxy.connect();
   }
 }
